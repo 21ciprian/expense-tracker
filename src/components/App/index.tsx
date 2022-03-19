@@ -10,7 +10,7 @@ function App() {
 		<GlobalProvider>
 			<article className='app'>
 				<Header title='Expense Tracker' />
-				<Balance balance={50.0} />
+				<Balance />
 				<IncomeExpenses plus={0.0} minus={0.0} />
 				<TransactionList />
 				<AddTransaction />
