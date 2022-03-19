@@ -6,9 +6,10 @@ export const initialState = {
 	transactions: [
 		{id: 1, text: 'Book', amount: -20},
 		{id: 2, text: 'Phone', amount: -200},
+		{id: 3, text: 'Payment', amount: 100},
 	],
 }
-type Obj = {
+export type Obj = {
 	id: number
 	text: string
 	amount: number
