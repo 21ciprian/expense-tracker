@@ -13,7 +13,7 @@ export interface State {
 }
 export interface Action {
 	type: Actions
-	payload: number | TransactionProps
+	payload: number | TransactionProps | any //| Obj
 }
 export default function AppReducer(state: State, action: Action) {
 	switch (action.type) {
@@ -23,6 +23,11 @@ export default function AppReducer(state: State, action: Action) {
 				transactions: state.transactions.filter(
 					transaction => transaction.id !== action.payload
 				),
+			}
+		case Actions.ADD_TRANSACTION:
+			return {
+				...state,
+				transactions: [...state.transactions, action.payload], //action.payload
 			}
 		default:
 			return state

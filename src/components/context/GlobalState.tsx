@@ -17,6 +17,7 @@ export type Obj = {
 type InitialState = {
 	transactions: Obj[]
 	deleteTransaction?: (id: number) => void
+	addTransaction?: (transaction: Obj) => void
 }
 type Children = {
 	children: ReactNode
@@ -31,9 +32,19 @@ export const GlobalProvider = ({children}: Children) => {
 			payload: id,
 		})
 	}
+	function addTransaction(transaction: Obj) {
+		dispatch({
+			type: Actions.ADD_TRANSACTION,
+			payload: transaction,
+		})
+	}
 	return (
 		<GlobalContext.Provider
-			value={{transactions: state.transactions, deleteTransaction}}>
+			value={{
+				transactions: state.transactions,
+				deleteTransaction,
+				addTransaction,
+			}}>
 			{children}
 		</GlobalContext.Provider>
 	)

@@ -1,19 +1,26 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
+import {GlobalContext} from '../context/GlobalState'
 import styles from './AddTransaction.module.css'
 
 type Props = {}
 
 function AddTransaction({}: Props) {
+	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
-	const [amount, setAmount] = useState<number | string>('')
+	const [amount, setAmount] = useState<number>(0)
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
-	}
-	function handleClick(e: React.MouseEvent) {
-		e.preventDefault()
+		const newTransaction = {
+			id: context.transactions.length + 1,
+			text,
+			amount: +amount,
+		}
+		console.log('newTransaction: ', newTransaction)
+		context?.addTransaction?.(newTransaction)
 		setText('')
-		setAmount('')
+		setAmount(0)
 	}
+
 	return (
 		<>
 			<h3>Add new transaction</h3>
@@ -36,7 +43,7 @@ function AddTransaction({}: Props) {
 						onChange={(e: any) => setAmount(e.target.value)}
 					/>
 				</div>
-				<button onClick={handleClick} type='submit' className={styles.button}>
+				<button type='submit' className={styles.button}>
 					Add transaction
 				</button>
 			</form>
