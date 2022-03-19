@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {GlobalContext} from '../context/GlobalState'
 import styles from './IncomeExpenses.module.css'
 
 type Props = {
@@ -6,17 +7,29 @@ type Props = {
 	minus: number
 }
 
-function IncomeExpenses({plus, minus}: Props) {
+function IncomeExpenses() {
+	const context = useContext(GlobalContext)
+	const amounts = context?.transactions.map(transaction => transaction.amount)
+	const income = amounts
+		?.filter(amount => amount > 0)
+		.reduce((acc, item) => acc + item, 0)
+		.toFixed(2)
+	const expense = amounts
+		?.filter(amount => amount < 0)
+		.reduce((acc, item) => acc + item, 0)
+		.toFixed(2)
 	return (
 		<section className={styles.incExpContainer}>
 			<div>
 				<h4>Income</h4>
-				<p className={`${styles.money} ${styles.plus}`}>+£{plus.toFixed(2)}</p>
+				<p className={`${styles.money} ${styles.plus}`}>
+					+£{Math.abs(Number(income))}
+				</p>
 			</div>
 			<div>
 				<h4>Expense</h4>
 				<p className={`${styles.money} ${styles.minus}`}>
-					-£{minus.toFixed(2)}
+					-£{Math.abs(Number(expense))}
 				</p>
 			</div>
 		</section>

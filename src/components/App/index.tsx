@@ -11,7 +11,7 @@ function App() {
 			<article className='app'>
 				<Header title='Expense Tracker' />
 				<Balance />
-				<IncomeExpenses plus={0.0} minus={0.0} />
+				<IncomeExpenses />
 				<TransactionList />
 				<AddTransaction />
 			</article>
