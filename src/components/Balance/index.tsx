@@ -11,7 +11,7 @@ function Balance() {
 		<section className={styles.balance}>
 			<h4>Your balance</h4>
 			<h1>
-				{sign}£{Math.abs(Number(total))}
+				{sign}£{Math.abs(Number(total)).toFixed(2)}
 				<div
 					className={
 						Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
