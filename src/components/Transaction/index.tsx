@@ -10,7 +10,7 @@ function Transaction({transaction}: TransactionProp) {
 	return (
 		<li
 			className={transaction.amount < 0 ? `${styles.minus}` : `${styles.plus}`}>
-			Cash{' '}
+			{transaction.text}{' '}
 			<span>
 				{sign}£{Math.abs(transaction.amount)}
 			</span>
