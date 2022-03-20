@@ -8,12 +8,16 @@ function Balance() {
 	const total = amounts?.reduce((acc, amount) => acc + amount, 0).toFixed(2)
 	const sign = Number(total) < 0 ? '-' : '+'
 	return (
-		<>
+		<section className={styles.balance}>
 			<h4>Your balance</h4>
-			<h1 className={styles.balance}>
+			<h1>
 				{sign}£{Math.abs(Number(total))}
+				<div
+					className={
+						Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
+					}></div>
 			</h1>
-		</>
+		</section>
 	)
 }
 
