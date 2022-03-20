@@ -16,21 +16,33 @@ li {
 	font-weight: 500;
 	position: relative;
 }
+h4 {
+	position: relative;
+}
+span {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: max-content;
+}
 .deleteBtn {
 	cursor: pointer;
-	background-color: #e74c3c;
+	border-radius: 0.5rem;
+	background-color: inherit;
 	border: 0;
 	color: #fff;
 	font-size: 20px;
 	line-height: 20px;
 	padding: 2px 5px;
 	position: absolute;
-	top: 50%;
-	left: 0;
-	transform: translate(-100%, -50%);
+	top: 14%;
+	right: 0;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
 li:hover .deleteBtn {
 	opacity: 1;
+}
+li:hover span {
+	transform: translateX(-1.5rem);
 }

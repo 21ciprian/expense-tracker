@@ -18,13 +18,13 @@ function IncomeExpenses() {
 			<div>
 				<h4>Income</h4>
 				<p className={`${styles.money} ${styles.plus}`}>
-					+£{Math.abs(Number(income))}
+					£{Math.abs(Number(income))}
 				</p>
 			</div>
 			<div>
 				<h4>Expense</h4>
 				<p className={`${styles.money} ${styles.minus}`}>
-					-£{Math.abs(Number(expense))}
+					£{Math.abs(Number(expense))}
 				</p>
 			</div>
 		</section>
