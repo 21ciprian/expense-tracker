@@ -7,14 +7,14 @@ function TransactionList() {
 	const context = useContext(GlobalContext)
 	console.log('context: ', context?.transactions)
 	return (
-		<>
+		<section className={styles.transactions}>
 			<h3>History</h3>
 			<ul className={styles.list}>
 				{context?.transactions.map(transaction => (
 					<Transaction key={transaction.id} transaction={transaction} />
 				))}
 			</ul>
-		</>
+		</section>
 	)
 }
 
