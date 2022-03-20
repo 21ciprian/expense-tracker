@@ -1,10 +1,6 @@
 import React, {useContext} from 'react'
-import {GlobalContext} from '../context/GlobalState'
+import {GlobalContext} from '../../context/GlobalState'
 import styles from './Balance.module.css'
-
-type BalanceProps = {
-	balance: number
-}
 
 function Balance() {
 	const context = useContext(GlobalContext)

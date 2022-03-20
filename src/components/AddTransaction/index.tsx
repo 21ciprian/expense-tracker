@@ -1,10 +1,8 @@
 import React, {useContext, useState} from 'react'
-import {GlobalContext} from '../context/GlobalState'
+import {GlobalContext} from '../../context/GlobalState'
 import styles from './AddTransaction.module.css'
 
-type Props = {}
-
-function AddTransaction({}: Props) {
+function AddTransaction() {
 	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<number>(0)

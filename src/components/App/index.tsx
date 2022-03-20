@@ -1,6 +1,6 @@
+import {GlobalProvider} from '../../context/GlobalState'
 import AddTransaction from '../AddTransaction'
 import Balance from '../Balance'
-import {GlobalProvider} from '../context/GlobalState'
 import Header from '../Header'
 import IncomeExpenses from '../IncomeExpenses'
 import TransactionList from '../TransactionList'

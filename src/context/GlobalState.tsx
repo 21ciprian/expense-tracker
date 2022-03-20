@@ -1,5 +1,6 @@
-import {createContext, ReactNode, useReducer} from 'react'
-import AppReducer, {Actions} from '../context/AppReducer'
+import {createContext, useReducer} from 'react'
+import {Actions, Children, InitialState, TransactionProps} from '../types'
+import AppReducer from './AppReducer'
 
 //initial state
 export const initialState = {
@@ -9,19 +10,7 @@ export const initialState = {
 		{id: 3, text: 'Payment', amount: 100},
 	],
 }
-export type Obj = {
-	id: number
-	text: string
-	amount: number
-}
-type InitialState = {
-	transactions: Obj[]
-	deleteTransaction?: (id: number) => void
-	addTransaction?: (transaction: Obj) => void
-}
-type Children = {
-	children: ReactNode
-}
+
 export const GlobalContext = createContext<InitialState>(initialState)
 export const GlobalProvider = ({children}: Children) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState)
@@ -32,7 +21,7 @@ export const GlobalProvider = ({children}: Children) => {
 			payload: id,
 		})
 	}
-	function addTransaction(transaction: Obj) {
+	function addTransaction(transaction: TransactionProps) {
 		dispatch({
 			type: Actions.ADD_TRANSACTION,
 			payload: transaction,

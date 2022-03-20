@@ -1,10 +1,7 @@
 import React, {useContext} from 'react'
-import {GlobalContext, Obj} from '../context/GlobalState'
+import {GlobalContext} from '../../context/GlobalState'
+import {TransactionProp} from '../../types'
 import styles from './Transaction.module.css'
-
-type TransactionProp = {
-	transaction: Obj
-}
 
 function Transaction({transaction}: TransactionProp) {
 	const sign = transaction.amount < 0 ? '-' : '+'

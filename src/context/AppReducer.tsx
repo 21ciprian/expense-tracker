@@ -1,20 +1,5 @@
-export enum Actions {
-	DELETE_TRANSACTION = 'DELETE_TRANSACTION',
-	ADD_TRANSACTION = 'ADD_TRANSACTION',
-}
-export type TransactionProps = {
-	id: number
-	text: string
-	amount: number
-	// deleteTransaction?: (id: number) => void
-}
-export interface State {
-	transactions: TransactionProps[]
-}
-export interface Action {
-	type: Actions
-	payload: number | TransactionProps | any //| Obj
-}
+import {Action, Actions, State} from '../types'
+
 export default function AppReducer(state: State, action: Action) {
 	switch (action.type) {
 		case Actions.DELETE_TRANSACTION:

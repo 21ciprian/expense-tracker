@@ -1,11 +1,6 @@
 import React, {useContext} from 'react'
-import {GlobalContext} from '../context/GlobalState'
+import {GlobalContext} from '../../context/GlobalState'
 import styles from './IncomeExpenses.module.css'
-
-type Props = {
-	plus: number
-	minus: number
-}
 
 function IncomeExpenses() {
 	const context = useContext(GlobalContext)
