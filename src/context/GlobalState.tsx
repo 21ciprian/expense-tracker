@@ -21,18 +21,28 @@ export const GlobalProvider = ({children}: Children) => {
 				type: Actions.GET_TRANSACTIONS,
 				payload: data.payload,
 			})
-		} catch (error) {
+		} catch (error: any) {
 			dispatch({
 				type: Actions.TRANSACTIONS_ERROR,
-				payload: error,
+				payload: error.message,
 			})
 		}
 	}
-	function deleteTransaction(id: number) {
-		dispatch({
-			type: Actions.DELETE_TRANSACTION,
-			payload: id,
-		})
+	async function deleteTransaction(id: number) {
+		try {
+			await fetch(`http://localhost:5000/api/v1/transactions/${id}`, {
+				method: 'DELETE',
+			})
+			dispatch({
+				type: Actions.DELETE_TRANSACTION,
+				payload: id,
+			})
+		} catch (error: any) {
+			dispatch({
+				type: Actions.TRANSACTIONS_ERROR,
+				payload: error.message,
+			})
+		}
 	}
 	function addTransaction(transaction: TransactionProps) {
 		dispatch({
