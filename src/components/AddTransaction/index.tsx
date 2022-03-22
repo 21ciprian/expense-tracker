@@ -9,7 +9,7 @@ function AddTransaction() {
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
 		const newTransaction = {
-			id: context.transactions.length + 1,
+			_id: context.transactions.length + 1,
 			text,
 			amount: +amount,
 		}

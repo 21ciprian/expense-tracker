@@ -17,7 +17,7 @@ function Transaction({transaction}: TransactionProp) {
 				{sign}£{Math.abs(transaction.amount)}{' '}
 			</span>
 			<button
-				onClick={() => context?.deleteTransaction?.(transaction.id)}
+				onClick={() => context?.deleteTransaction?.(transaction._id)}
 				className={styles.deleteBtn}>
 				<DeleteForeverOutlined sx={{color: '#c0392b'}} />
 			</button>
