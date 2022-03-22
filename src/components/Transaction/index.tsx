@@ -2,8 +2,8 @@ import {DeleteForeverOutlined} from '@mui/icons-material'
 import React, {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import {TransactionProp} from '../../types'
+import {numberWithCommas} from '../../utils/format'
 import styles from './Transaction.module.css'
-
 function Transaction({transaction}: TransactionProp) {
 	const sign = transaction.amount < 0 ? '-' : '+'
 	const context = useContext(GlobalContext)
@@ -14,7 +14,7 @@ function Transaction({transaction}: TransactionProp) {
 			<h4>{transaction.text} </h4>
 
 			<span>
-				{sign}£{Math.abs(transaction.amount)}{' '}
+				{sign}£{numberWithCommas(Math.abs(transaction.amount))}{' '}
 			</span>
 			<button
 				onClick={() => context?.deleteTransaction?.(transaction._id)}
