@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
+import {numberWithCommas} from '../../utils/format'
 import styles from './IncomeExpenses.module.css'
 
 function IncomeExpenses() {
@@ -18,13 +19,13 @@ function IncomeExpenses() {
 			<div>
 				<h4>Income</h4>
 				<p className={`${styles.money} ${styles.plus}`}>
-					£{Math.abs(Number(income))}
+					£{numberWithCommas(Math.abs(Number(income)))}
 				</p>
 			</div>
 			<div>
 				<h4>Expense</h4>
 				<p className={`${styles.money} ${styles.minus}`}>
-					£{Math.abs(Number(expense))}
+					£{numberWithCommas(Math.abs(Number(expense)))}
 				</p>
 			</div>
 		</section>
