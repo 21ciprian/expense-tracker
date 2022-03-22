@@ -44,11 +44,33 @@ export const GlobalProvider = ({children}: Children) => {
 			})
 		}
 	}
-	function addTransaction(transaction: TransactionProps) {
-		dispatch({
-			type: Actions.ADD_TRANSACTION,
-			payload: transaction,
-		})
+	async function addTransaction(transaction: TransactionProps) {
+		try {
+			const response = await fetch(
+				`http://localhost:5000/api/v1/transactions`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						text: transaction.text,
+						amount: transaction.amount,
+					}),
+				}
+			)
+			const data = await response.json()
+			console.log('POST data.payload: ', data.payload)
+			dispatch({
+				type: Actions.ADD_TRANSACTION,
+				payload: data.payload,
+			})
+		} catch (error: any) {
+			dispatch({
+				type: Actions.TRANSACTIONS_ERROR,
+				payload: error.message,
+			})
+		}
 	}
 	return (
 		<GlobalContext.Provider
