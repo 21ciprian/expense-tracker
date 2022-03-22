@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
+import {numberWithCommas} from '../../utils/format'
 import styles from './Balance.module.css'
 
 function Balance() {
@@ -12,7 +13,7 @@ function Balance() {
 		<section className={styles.balance}>
 			<h4>Your balance</h4>
 			<h1>
-				£{Math.abs(Number(total)).toFixed(2)}
+				£{numberWithCommas(Math.abs(Number(total)))}
 				<div
 					className={
 						Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
