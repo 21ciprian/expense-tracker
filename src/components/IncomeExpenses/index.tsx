@@ -3,7 +3,7 @@ import {GlobalContext} from '../../context/GlobalState'
 import {numberWithCommas} from '../../utils/format'
 import styles from './IncomeExpenses.module.css'
 
-function IncomeExpenses() {
+function IncomeExpenses(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const amounts = context?.transactions.map(transaction => transaction.amount)
 	const income = amounts
