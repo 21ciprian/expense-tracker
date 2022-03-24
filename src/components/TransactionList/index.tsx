@@ -3,7 +3,7 @@ import {GlobalContext} from '../../context/GlobalState'
 import Transaction from '../Transaction'
 import styles from './TransactionList.module.css'
 
-function TransactionList() {
+function TransactionList(): JSX.Element {
 	const context = useContext(GlobalContext)
 	console.log('context: ', context?.transactions)
 
