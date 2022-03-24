@@ -4,7 +4,7 @@ import {GlobalContext} from '../../context/GlobalState'
 import {TransactionProp} from '../../types'
 import {numberWithCommas} from '../../utils/format'
 import styles from './Transaction.module.css'
-function Transaction({transaction}: TransactionProp) {
+function Transaction({transaction}: TransactionProp): JSX.Element {
 	const sign = transaction.amount < 0 ? '-' : '+'
 	const context = useContext(GlobalContext)
 
