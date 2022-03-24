@@ -5,7 +5,7 @@ type HeaderProps = {
 	title: string
 }
 
-function Header({title}: HeaderProps) {
+function Header({title}: HeaderProps): JSX.Element {
 	return <header className={styles.header}>{title}</header>
 }
 
