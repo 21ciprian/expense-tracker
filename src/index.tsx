@@ -5,11 +5,14 @@ import App from './components/App'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 
+const domain = process.env.REACT_APP_DOMAIN
+const clientId = process.env.REACT_APP_CLIENT_ID
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Auth0Provider
-			domain='dev-mz4xvhaz.us.auth0.com'
-			clientId='bDiW6Am9I9Pib8ZT8gAX9GisI48PMIKN'
+			domain={domain!}
+			clientId={clientId!}
 			redirectUri={window.location.origin}>
 			<App />
 		</Auth0Provider>
