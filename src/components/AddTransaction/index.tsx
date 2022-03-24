@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import styles from './AddTransaction.module.css'
 
-function AddTransaction() {
+function AddTransaction(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
@@ -30,7 +30,9 @@ function AddTransaction() {
 						type='text'
 						placeholder='Enter text...'
 						value={text}
-						onChange={e => setText(e.target.value)}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							setText(e.target.value)
+						}
 					/>
 				</div>
 				<div className={styles.formControl}>
@@ -40,7 +42,9 @@ function AddTransaction() {
 						type='number'
 						placeholder='Enter amount...'
 						value={amount}
-						onChange={(e: any) => setAmount(e.target.value)}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							setAmount(e.target.value)
+						}
 					/>
 				</div>
 				<button className={styles.button}>Add transaction</button>
