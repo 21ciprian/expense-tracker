@@ -11,7 +11,10 @@ function Transaction({transaction}: TransactionProp): JSX.Element {
 	return (
 		<li
 			className={transaction.amount < 0 ? `${styles.minus}` : `${styles.plus}`}>
-			<h4>{transaction.text} </h4>
+			<h4>
+				{transaction.text.charAt(0).toUpperCase() +
+					transaction.text.slice(1).toLowerCase()}{' '}
+			</h4>
 
 			<span>
 				{sign}£{numberWithCommas(Math.abs(transaction.amount))}{' '}
