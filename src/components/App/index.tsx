@@ -5,7 +5,7 @@ import Header from '../Header'
 import IncomeExpenses from '../IncomeExpenses'
 import TransactionList from '../TransactionList'
 import './App.css'
-function App() {
+function App(): JSX.Element {
 	return (
 		<GlobalProvider>
 			<article className='app'>
