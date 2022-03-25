@@ -7,6 +7,7 @@ import LoginButton from '../Login'
 import LogoutButton from '../Logout'
 import TransactionList from '../TransactionList'
 import './App.css'
+
 function App(): JSX.Element {
 	return (
 		<GlobalProvider>
