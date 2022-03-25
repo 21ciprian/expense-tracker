@@ -7,11 +7,13 @@ import reportWebVitals from './reportWebVitals'
 
 const domain = process.env.REACT_APP_DOMAIN
 const clientId = process.env.REACT_APP_CLIENT_ID
+const audience = process.env.REACT_APP_AUDIENCE
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Auth0Provider
 			domain={domain!}
+			audience={audience}
 			clientId={clientId!}
 			redirectUri={window.location.origin}>
 			<App />
