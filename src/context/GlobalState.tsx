@@ -15,7 +15,7 @@ export const GlobalProvider = ({children}: Children) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState)
 	async function getTransactions(): Promise<void> {
 		try {
-			const response = await fetch(`${baseURL}/api/v1/transactions`)
+			const response = await fetch(`${baseURL!}/api/v1/transactions`)
 			const data = await response.json()
 			console.log('data: ', data)
 			dispatch({
@@ -31,7 +31,7 @@ export const GlobalProvider = ({children}: Children) => {
 	}
 	async function deleteTransaction(id: number) {
 		try {
-			await fetch(`${baseURL}/api/v1/transactions/${id}`, {
+			await fetch(`${baseURL!}/api/v1/transactions/${id}`, {
 				method: 'DELETE',
 			})
 			dispatch({
@@ -47,7 +47,7 @@ export const GlobalProvider = ({children}: Children) => {
 	}
 	async function addTransaction(transaction: TransactionProps) {
 		try {
-			const response = await fetch(`${baseURL}/api/v1/transactions`, {
+			const response = await fetch(`${baseURL!}/api/v1/transactions`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
