@@ -3,6 +3,7 @@ import {Actions, Children, InitialState, TransactionProps} from '../types'
 import AppReducer from './AppReducer'
 
 //initial state
+const baseURL = process.env.REACT_APP_API_URL
 export const initialState = {
 	transactions: [],
 	error: null,
@@ -14,7 +15,7 @@ export const GlobalProvider = ({children}: Children) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState)
 	async function getTransactions(): Promise<void> {
 		try {
-			const response = await fetch(`http://localhost:5000/api/v1/transactions`)
+			const response = await fetch(`${baseURL}/api/v1/transactions`)
 			const data = await response.json()
 			console.log('data: ', data)
 			dispatch({
@@ -30,7 +31,7 @@ export const GlobalProvider = ({children}: Children) => {
 	}
 	async function deleteTransaction(id: number) {
 		try {
-			await fetch(`http://localhost:5000/api/v1/transactions/${id}`, {
+			await fetch(`${baseURL}/api/v1/transactions/${id}`, {
 				method: 'DELETE',
 			})
 			dispatch({
@@ -46,19 +47,16 @@ export const GlobalProvider = ({children}: Children) => {
 	}
 	async function addTransaction(transaction: TransactionProps) {
 		try {
-			const response = await fetch(
-				`http://localhost:5000/api/v1/transactions`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						text: transaction.text,
-						amount: transaction.amount,
-					}),
-				}
-			)
+			const response = await fetch(`${baseURL}/api/v1/transactions`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					text: transaction.text,
+					amount: transaction.amount,
+				}),
+			})
 			const data = await response.json()
 			console.log('POST data.payload: ', data.payload)
 			dispatch({
