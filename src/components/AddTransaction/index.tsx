@@ -1,8 +1,11 @@
+import {useAuth0} from '@auth0/auth0-react'
 import React, {useContext, useState} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import styles from './AddTransaction.module.css'
 
 function AddTransaction(): JSX.Element {
+	const {user} = useAuth0()
+
 	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
@@ -12,8 +15,12 @@ function AddTransaction(): JSX.Element {
 			_id: context.transactions.length + 1,
 			text,
 			amount: +amount,
+			ref: user!.email!,
 		}
-		console.log('newTransaction: ', newTransaction)
+		console.log(
+			'newTransaction from AddTransaction component: ',
+			newTransaction
+		)
 		context?.addTransaction?.(newTransaction)
 		setText('')
 		setAmount('')

@@ -1,7 +1,6 @@
 import {createContext, useReducer} from 'react'
 import {Actions, Children, InitialState, TransactionProps} from '../types'
 import AppReducer from './AppReducer'
-
 //initial state
 const baseURL = process.env.REACT_APP_API_URL
 export const initialState = {
@@ -55,6 +54,7 @@ export const GlobalProvider = ({children}: Children) => {
 				body: JSON.stringify({
 					text: transaction.text,
 					amount: transaction.amount,
+					ref: transaction.ref,
 				}),
 			})
 			const data = await response.json()
