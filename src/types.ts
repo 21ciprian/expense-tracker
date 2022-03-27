@@ -8,7 +8,7 @@ export type TransactionProps = {
 	_id: number
 	text: string
 	amount: number
-	ref: string
+	email: string
 }
 export interface State {
 	transactions: TransactionProps[]

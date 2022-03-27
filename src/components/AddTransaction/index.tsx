@@ -5,7 +5,7 @@ import styles from './AddTransaction.module.css'
 
 function AddTransaction(): JSX.Element {
 	const {user} = useAuth0()
-
+	console.log('user!.email! in addTransaction: ', user!.email!)
 	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
@@ -15,13 +15,13 @@ function AddTransaction(): JSX.Element {
 			_id: context.transactions.length + 1,
 			text,
 			amount: +amount,
-			ref: user!.email!,
+			email: user!.email!,
 		}
 		console.log(
 			'newTransaction from AddTransaction component: ',
 			newTransaction
 		)
-		context?.addTransaction?.(newTransaction)
+		context.addTransaction?.(newTransaction)
 		setText('')
 		setAmount('')
 	}
