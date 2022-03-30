@@ -6,6 +6,7 @@
 	text-align: center;
 	background: #fff;
 	height: 5vh;
+	box-shadow: var(--box-shadow);
 }
 .header h4 {
 	text-align: center;
