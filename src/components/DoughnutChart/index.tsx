@@ -1,19 +1,36 @@
 import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js'
-import React from 'react'
+import React, {useContext} from 'react'
 import {Doughnut} from 'react-chartjs-2'
+import {GlobalContext} from '../../context/GlobalState'
+import styles from './DoughnutChart.module.css'
 ChartJS.register(ArcElement, Tooltip, Legend)
-interface Amounts {
-	amounts: number[]
-	// amount:number
-}
-function DoughnutChart({amounts}: Amounts): JSX.Element {
+// interface Amounts {
+// 	amounts: number[]
+// }
+// {amounts}: Amounts
+function DoughnutChart(): JSX.Element {
+	const context = useContext(GlobalContext)
+	const amounts = context?.transactions?.map(transaction => transaction.amount)
+	console.log('amounts from chart: ', amounts)
+	console.log('context from chart: ', context)
+	const options = {
+		plugins: {
+			legend: {
+				display: false,
+			},
+		},
+	}
 	const dataset = {
 		labels: ['Income', 'Expense'],
+		plugins: {
+			datalabels: {
+				display: false,
+			},
+		},
 		datasets: [
 			{
-				label: 'AMounts',
+				// label: 'AMounts',
 				data: [
-					// 40, -20,
 					amounts
 						.filter(c => c > 0)
 						.map(i => i)
@@ -29,9 +46,9 @@ function DoughnutChart({amounts}: Amounts): JSX.Element {
 		],
 	}
 	return (
-		<div>
+		<div className={styles.chart}>
 			{' '}
-			<Doughnut data={dataset} />
+			<Doughnut data={dataset} options={options} />
 		</div>
 	)
 }
