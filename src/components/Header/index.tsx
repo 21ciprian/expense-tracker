@@ -20,8 +20,6 @@ function Header({title}: HeaderProps): JSX.Element {
 				<div className={styles.user}>
 					<LogoutButton />
 					<img src={user?.picture} alt={user?.name} />
-
-					{/* <h4>Hello {user?.name}</h4> */}
 				</div>
 			)}
 		</header>
