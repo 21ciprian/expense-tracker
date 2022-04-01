@@ -25,7 +25,7 @@ function IncomeExpenses(): JSX.Element {
 			<div>
 				<h4>Expense</h4>
 				<p className={`${styles.money} ${styles.minus}`}>
-					£{numberWithCommas(Math.abs(Number(expense)))}
+					£{numberWithCommas(Math.abs(Number(expense))).toFixed(2)}
 				</p>
 			</div>
 		</section>
