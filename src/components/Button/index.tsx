@@ -6,7 +6,7 @@ type ButtonProps = {
 	text: string
 	style: {
 		width: string
-		backgroundColor: string
+		backgroundColor?: string
 	}
 }
 

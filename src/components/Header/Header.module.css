@@ -10,7 +10,7 @@
 	padding: 0 0.5rem;
 }
 .header img {
-	width: 3rem;
+	width: 5rem;
 }
 .header h4 {
 	text-align: center;
@@ -20,19 +20,15 @@
 	display: flex;
 	align-items: center;
 }
-.user img {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 100%;
-}
+
 .user button {
 	background-color: inherit;
-	outline: none;
 	border: none;
-	margin-right: 0.5rem;
+	color: #ff6384;
 	cursor: pointer;
+	outline: 2px solid #ff6384;
 }
 .user button:hover {
-	text-decoration: underline;
-	color: blue;
+	background-color: #ff6384;
+	color: white;
 }
