@@ -17,9 +17,9 @@ input[type='number'] {
 	padding: 10px;
 	width: 100%;
 }
-.button {
+.addTransaction button {
 	cursor: pointer;
-	background-color: #9c88ff;
+	background-color: #4bc0c0;
 	box-shadow: var(--box-shadow);
 	color: #fff;
 	border: 0;
@@ -29,6 +29,6 @@ input[type='number'] {
 	padding: 10px;
 	width: 100%;
 }
-.button:focus {
+.addTransaction button:focus {
 	outline: 0;
 }

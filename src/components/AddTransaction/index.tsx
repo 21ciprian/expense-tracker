@@ -14,7 +14,6 @@ function AddTransaction(): JSX.Element {
 	}
 	const buttonStyle = {
 		width: '100%',
-		backgroundColor: 'blue',
 	}
 	function handleClick() {
 		console.log('clicked')
