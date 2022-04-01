@@ -12,6 +12,10 @@ function AddTransaction(): JSX.Element {
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
 	}
+	const buttonStyle = {
+		width: '100%',
+		backgroundColor: 'blue',
+	}
 	function handleClick() {
 		console.log('clicked')
 		const newTransaction = {
@@ -54,7 +58,11 @@ function AddTransaction(): JSX.Element {
 						}
 					/>
 				</div>
-				<Button handleClick={handleClick} text='Add transaction' />
+				<Button
+					style={buttonStyle}
+					handleClick={handleClick}
+					text='Add transaction'
+				/>
 			</form>
 		</section>
 	)

@@ -4,11 +4,16 @@ import Button from '../Button'
 
 function Logout(): JSX.Element {
 	const {logout} = useAuth0()
+	const buttonStyle = {
+		width: '80%',
+		backgroundColor: 'blue',
+	}
 
 	return (
 		<Button
+			style={buttonStyle}
 			handleClick={() => logout({returnTo: window.location.origin})}
-			text='	Log Out'
+			text='Log Out'
 		/>
 	)
 }
