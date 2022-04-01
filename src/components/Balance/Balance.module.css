@@ -12,7 +12,7 @@
 
 .balance__amount h3 {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 }
 .balance__amount h3 span:first-of-type {
