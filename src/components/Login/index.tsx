@@ -6,12 +6,10 @@ function Login(): JSX.Element {
 	const {loginWithRedirect} = useAuth0()
 	const buttonStyle = {
 		width: '80%',
-		backgroundColor: 'blue',
 	}
 	return (
 		<section className={styles.login}>
 			<img className={styles.logo} src={logo} alt='logo' />
-			<h2>Expense Tracker</h2>
 			<h4>You need to be logged in to see your expenses</h4>
 			<Button
 				style={buttonStyle}
