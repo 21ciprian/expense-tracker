@@ -16,10 +16,7 @@ function AddTransaction(): JSX.Element {
 			amount: +amount,
 			email: user!.email!,
 		}
-		console.log(
-			'newTransaction from AddTransaction component: ',
-			newTransaction
-		)
+
 		context.addTransaction?.(newTransaction)
 		setText('')
 		setAmount('')

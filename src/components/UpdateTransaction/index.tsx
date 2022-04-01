@@ -3,7 +3,6 @@ import React from 'react'
 
 function UpdateTransaction(): JSX.Element {
 	const {user} = useAuth0()
-	console.log('user from update: ', user)
 	return <div>UpdateTransaction</div>
 }
 

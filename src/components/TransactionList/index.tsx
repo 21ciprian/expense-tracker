@@ -5,7 +5,6 @@ import styles from './TransactionList.module.css'
 
 function TransactionList(): JSX.Element {
 	const context = useContext(GlobalContext)
-	console.log('context: ', context?.transactions)
 
 	useEffect(() => {
 		context?.getTransactions?.()

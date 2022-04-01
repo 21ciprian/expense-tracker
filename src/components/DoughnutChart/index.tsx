@@ -4,15 +4,11 @@ import {Doughnut} from 'react-chartjs-2'
 import {GlobalContext} from '../../context/GlobalState'
 import styles from './DoughnutChart.module.css'
 ChartJS.register(ArcElement, Tooltip, Legend)
-// interface Amounts {
-// 	amounts: number[]
-// }
-// {amounts}: Amounts
+
 function DoughnutChart(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const amounts = context?.transactions?.map(transaction => transaction.amount)
-	console.log('amounts from chart: ', amounts)
-	console.log('context from chart: ', context)
+
 	const options = {
 		plugins: {
 			legend: {
@@ -29,7 +25,6 @@ function DoughnutChart(): JSX.Element {
 		},
 		datasets: [
 			{
-				// label: 'AMounts',
 				data: [
 					amounts
 						.filter(c => c > 0)
@@ -40,8 +35,8 @@ function DoughnutChart(): JSX.Element {
 						.map(i => i)
 						.reduce((a, v) => a + v, 0),
 				],
-				backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
-				borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+				backgroundColor: ['#4bc0c033', '#ff638433'],
+				borderColor: ['#4bc0c0', '#ff6384'],
 			},
 		],
 	}

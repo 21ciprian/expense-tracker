@@ -7,7 +7,6 @@ import styles from './Balance.module.css'
 function Balance(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const amounts = context?.transactions?.map(transaction => transaction.amount)
-	console.log('amounts:', amounts)
 	const total = amounts?.reduce((acc, amount) => acc + amount, 0).toFixed(2)
 	const sign = Number(total) < 0 ? '-' : ''
 	if (!context) return <h2>Loading...</h2>
@@ -23,7 +22,6 @@ function Balance(): JSX.Element {
 						}></div>
 				</h1>
 			</div>
-			{/* <DoughnutChart amounts={amounts} /> */}
 		</section>
 	)
 }

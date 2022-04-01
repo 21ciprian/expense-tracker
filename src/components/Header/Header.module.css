@@ -9,6 +9,9 @@
 	box-shadow: var(--box-shadow);
 	padding: 0 0.5rem;
 }
+.header img {
+	width: 3rem;
+}
 .header h4 {
 	text-align: center;
 	align-self: center;
