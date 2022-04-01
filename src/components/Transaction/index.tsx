@@ -17,7 +17,7 @@ function Transaction({transaction}: TransactionProp): JSX.Element {
 			</h4>
 
 			<span>
-				{sign}£{numberWithCommas(Math.abs(transaction.amount))}{' '}
+				{sign}£{numberWithCommas(Math.abs(transaction.amount)).toFixed(2)}{' '}
 			</span>
 			<button
 				onClick={() => context?.deleteTransaction?.(transaction._id)}
