@@ -13,14 +13,16 @@ function Balance(): JSX.Element {
 	return (
 		<section className={styles.balance}>
 			<div className={styles.balance__amount}>
-				<h4>Your balance</h4>
-				<h1>
-					{sign}£{numberWithCommas(Math.abs(Number(total)))}
-					<div
+				<h3>
+					Your balance:{' '}
+					<span>
+						{sign}£{numberWithCommas(Math.abs(Number(total))).toFixed(2)}
+					</span>
+					<span
 						className={
 							Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
-						}></div>
-				</h1>
+						}></span>
+				</h3>
 			</div>
 		</section>
 	)
