@@ -1,14 +1,16 @@
 import {useAuth0} from '@auth0/auth0-react'
 import React from 'react'
+import Button from '../Button'
 
-function LogoutButton(): JSX.Element {
+function Logout(): JSX.Element {
 	const {logout} = useAuth0()
 
 	return (
-		<button onClick={() => logout({returnTo: window.location.origin})}>
-			Log Out
-		</button>
+		<Button
+			handleClick={() => logout({returnTo: window.location.origin})}
+			text='	Log Out'
+		/>
 	)
 }
 
-export default LogoutButton
+export default Logout

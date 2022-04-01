@@ -6,7 +6,7 @@ import Balance from '../Balance'
 import DoughnutChart from '../DoughnutChart'
 import Header from '../Header'
 import IncomeExpenses from '../IncomeExpenses'
-import LoginButton from '../Login'
+import Login from '../Login'
 import TransactionList from '../TransactionList'
 import './App.css'
 
@@ -29,7 +29,7 @@ function App(): JSX.Element {
 						<AddTransaction />
 					</>
 				) : (
-					<LoginButton />
+					<Login />
 				)}
 			</article>
 		</GlobalProvider>

@@ -1,6 +1,7 @@
 import {useAuth0} from '@auth0/auth0-react'
 import React, {useContext, useState} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
+import Button from '../Button'
 import styles from './AddTransaction.module.css'
 
 function AddTransaction(): JSX.Element {
@@ -10,6 +11,9 @@ function AddTransaction(): JSX.Element {
 	const [amount, setAmount] = useState<string>('')
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
+	}
+	function handleClick() {
+		console.log('clicked')
 		const newTransaction = {
 			_id: context.transactions.length + 1,
 			text,
@@ -50,7 +54,7 @@ function AddTransaction(): JSX.Element {
 						}
 					/>
 				</div>
-				<button className={styles.button}>Add transaction</button>
+				<Button handleClick={handleClick} text='Add transaction' />
 			</form>
 		</section>
 	)

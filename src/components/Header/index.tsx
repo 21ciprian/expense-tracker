@@ -1,7 +1,7 @@
 import {useAuth0} from '@auth0/auth0-react'
 import React from 'react'
 import logo from '../../assets/logo.svg'
-import LogoutButton from '../Logout'
+import Logout from '../Logout'
 import styles from './Header.module.css'
 
 type HeaderProps = {
@@ -20,7 +20,7 @@ function Header({title}: HeaderProps): JSX.Element {
 			<h4>{title}</h4>
 			{isAuthenticated && (
 				<div className={styles.user}>
-					<LogoutButton />
+					<Logout />
 					<img src={user?.picture} alt={user?.name} />
 				</div>
 			)}
