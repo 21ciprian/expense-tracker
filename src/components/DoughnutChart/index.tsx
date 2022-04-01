@@ -24,20 +24,26 @@ function DoughnutChart(): JSX.Element {
 			},
 		},
 		datasets: [
-			{
-				data: [
-					amounts
-						.filter(c => c > 0)
-						.map(i => i)
-						.reduce((a, v) => a + v, 0),
-					amounts
-						.filter(c => c < 0)
-						.map(i => i)
-						.reduce((a, v) => a + v, 0),
-				],
-				backgroundColor: ['#4bc0c033', '#ff638433'],
-				borderColor: ['#4bc0c0', '#ff6384'],
-			},
+			!amounts.length
+				? {
+						data: [10],
+						backgroundColor: ['#d7d7d733'],
+						borderColor: ['#797979'],
+				  }
+				: {
+						data: [
+							amounts
+								.filter(c => c > 0)
+								.map(i => i)
+								.reduce((a, v) => a + v, 0),
+							amounts
+								.filter(c => c < 0)
+								.map(i => i)
+								.reduce((a, v) => a + v, 0),
+						],
+						backgroundColor: ['#4bc0c033', '#ff638433'],
+						borderColor: ['#4bc0c0', '#ff6384'],
+				  },
 		],
 	}
 	return (

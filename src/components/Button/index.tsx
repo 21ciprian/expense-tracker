@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Button.module.css'
 
 type ButtonProps = {
-	handleClick: () => void
+	handleClick?: () => void
 	text: string
 	style: {
 		width: string

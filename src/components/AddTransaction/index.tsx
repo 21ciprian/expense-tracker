@@ -9,14 +9,11 @@ function AddTransaction(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
-	function handleSubmit(e: React.FormEvent) {
-		e.preventDefault()
-	}
 	const buttonStyle = {
 		width: '100%',
 	}
-	function handleClick() {
-		console.log('clicked')
+	function handleSubmit(e: React.FormEvent) {
+		e.preventDefault()
 		const newTransaction = {
 			_id: context.transactions.length + 1,
 			text,
@@ -57,11 +54,7 @@ function AddTransaction(): JSX.Element {
 						}
 					/>
 				</div>
-				<Button
-					style={buttonStyle}
-					handleClick={handleClick}
-					text='Add transaction'
-				/>
+				<Button style={buttonStyle} text='Add transaction' />
 			</form>
 		</section>
 	)
