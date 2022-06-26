@@ -1,23 +1,24 @@
 .incExpContainer {
-	background-color: #fff;
-	box-shadow: var(--box-shadow);
+	background-color: inherit;
+	margin-top: 1rem;
 	display: flex;
+	gap: 1rem;
 	justify-content: space-between;
-	width: 100%;
+	width: 90%;
 }
 .incExpContainer > div {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: 100%;
+	width: 50%;
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
+	background-color: #fff;
 
 	padding: 0.5rem;
 }
 .incExpContainer h4 {
 	text-transform: uppercase;
-}
-.incExpContainer div:first-of-type {
-	border-right: 1px solid #dedede;
 }
 .money {
 	font-weight: 500;
