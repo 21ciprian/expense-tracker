@@ -1,6 +1,7 @@
 .header {
 	font-weight: 500;
 	width: 100%;
+	max-width: 26rem;
 	height: 10vh;
 	display: flex;
 	justify-content: space-between;
@@ -9,7 +10,6 @@
 	padding: 1rem;
 	position: fixed;
 	top: 0;
-	left: 0;
 	z-index: 10;
 }
 .header img {
@@ -20,7 +20,7 @@
 	justify-content: center;
 	gap: 0.2rem;
 	align-self: center;
-	flex: 0.8;
+	flex: 0.7;
 	font-size: 1.1rem;
 }
 .header h4 .name {
@@ -34,8 +34,10 @@
 .user button {
 	background-color: inherit;
 	border: none;
+	flex: 0.2;
 	color: #ff6384;
 	font-weight: 700;
+	font-size: 1rem;
 	cursor: pointer;
 	outline: 2px solid #ff6384;
 }
