@@ -1,7 +1,7 @@
 .addTransaction {
 	width: 100%;
 }
-h3 {
+.addTransaction h3 {
 	border-bottom: 1px solid #bbb;
 }
 label {

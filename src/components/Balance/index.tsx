@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import {numberWithCommas} from '../../utils/format'
 // import DoughnutChart from '../DoughnutChart'
@@ -12,16 +12,15 @@ function Balance(): JSX.Element {
 	if (!context) return <h2>Loading...</h2>
 	return (
 		<section className={styles.balance}>
-			<div className={styles.balance__amount}>
+			<div
+				className={`${styles.balance__amount} ${
+					Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
+				}`}>
 				<h3>
 					Your balance:{' '}
 					<span>
 						{sign}£{numberWithCommas(Math.abs(Number(total))).toFixed(2)}
 					</span>
-					<span
-						className={
-							Number(total) < 0 ? `${styles.minus}` : `${styles.plus}`
-						}></span>
 				</h3>
 			</div>
 		</section>
