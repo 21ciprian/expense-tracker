@@ -17,8 +17,8 @@ function Header({title}: HeaderProps): JSX.Element {
 		<header className={styles.header}>
 			<img src={logo} alt='logo' />
 			<h4>
-				Welcome, <span className={styles.name}></span>
-				{user?.name?.split(' ')[0]}
+				Welcome,
+				<span className={styles.name}> {user?.name?.split(' ')[0]}</span>
 			</h4>
 			{isAuthenticated && (
 				<div className={styles.user}>
