@@ -10,7 +10,7 @@ function AddTransaction(): JSX.Element {
 	const [text, setText] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
 	const buttonStyle = {
-		width: '100%',
+		width: '100%'
 	}
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
@@ -18,7 +18,7 @@ function AddTransaction(): JSX.Element {
 			_id: context.transactions.length + 1,
 			text,
 			amount: +amount,
-			email: user!.email!,
+			email: user!.email!
 		}
 
 		context.addTransaction?.(newTransaction)
@@ -43,7 +43,7 @@ function AddTransaction(): JSX.Element {
 					/>
 				</div>
 				<div className={styles.formControl}>
-					<label htmlFor='amount'>Amount(add '-' for negative numbers)</label>
+					<label htmlFor='amount'>Amount (add '-' for negative numbers)</label>
 					<input
 						required
 						type='number'
