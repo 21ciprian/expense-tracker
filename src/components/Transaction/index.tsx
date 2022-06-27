@@ -1,5 +1,5 @@
 import {DeleteForeverOutlined} from '@mui/icons-material'
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import {TransactionProp} from '../../types'
 import {numberWithCommas} from '../../utils/format'
@@ -22,7 +22,7 @@ function Transaction({transaction}: TransactionProp): JSX.Element {
 			<button
 				onClick={() => context?.deleteTransaction?.(transaction._id)}
 				className={styles.deleteBtn}>
-				<DeleteForeverOutlined sx={{color: '#c0392b'}} />
+				<DeleteForeverOutlined fontSize='large' sx={{color: '#ff6384'}} />
 			</button>
 		</li>
 	)

@@ -10,20 +10,27 @@ li {
 	color: #333;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	position: relative;
 	padding: 10px;
-	margin: 10px 0;
+	/* margin: 10px 0; */
 	font-weight: 500;
 	position: relative;
+	border-radius: 0.5rem;
+	width: 90%;
+	height: 5rem;
+	margin: 0 auto;
+	font-size: 1.1rem;
 }
-h4 {
+li h4 {
 	position: relative;
 }
-span {
+li span {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: max-content;
+	font-size: inherit;
 }
 .deleteBtn {
 	cursor: pointer;
@@ -31,11 +38,9 @@ span {
 	background-color: inherit;
 	border: 0;
 	color: #fff;
-	font-size: 20px;
 	line-height: 20px;
 	padding: 2px 5px;
 	position: absolute;
-	top: 14%;
 	right: 0;
 	opacity: 0;
 	transition: opacity 0.3s ease;
@@ -44,5 +49,5 @@ li:hover .deleteBtn {
 	opacity: 1;
 }
 li:hover span {
-	transform: translateX(-1.5rem);
+	transform: translateX(-3rem);
 }
