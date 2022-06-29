@@ -1,6 +1,6 @@
 .header {
 	font-weight: 500;
-	width: 100%;
+	/* width: 100%;
 	max-width: 26rem;
 	height: 10vh;
 	display: flex;
@@ -10,7 +10,27 @@
 	padding: 1rem;
 	position: fixed;
 	top: 0;
+	z-index: 10; */
+	height: 10vh;
+	width: 100%;
+	max-width: 26rem;
+
+	position: fixed;
+	top: 0;
 	z-index: 10;
+	/* border: 1px solid red; */
+}
+.headerWrapper {
+	width: 100%;
+	max-width: 26rem;
+	height: 100%;
+	max-height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	background: #fff;
+	/* border: 1px solid black; */
+	padding: 1rem;
 }
 .header img {
 	width: 5rem;

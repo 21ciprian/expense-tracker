@@ -1,8 +1,7 @@
 import {useAuth0} from '@auth0/auth0-react'
-import React from 'react'
 import {GlobalProvider} from '../../context/GlobalState'
 import AddTransaction from '../AddTransaction'
-import Balance from '../Balance'
+// import Balance from '../Balance'
 import DoughnutChart from '../DoughnutChart'
 import Header from '../Header'
 import IncomeExpenses from '../IncomeExpenses'
@@ -21,7 +20,7 @@ function App(): JSX.Element {
 				{isAuthenticated ? (
 					<>
 						<Header title='Expense Tracker' />
-						<Balance />
+						{/* <Balance /> */}
 						<IncomeExpenses />
 						<DoughnutChart />
 
