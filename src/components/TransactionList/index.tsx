@@ -1,4 +1,5 @@
-import React, {useContext, useEffect} from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import {useContext, useEffect} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import Transaction from '../Transaction'
 import styles from './TransactionList.module.css'
@@ -9,6 +10,7 @@ function TransactionList(): JSX.Element {
 	useEffect(() => {
 		context?.getTransactions?.()
 		//eslint-disable-next-line react-hooks/exhaustive-deps
+		//
 	}, [])
 	if (!context) return <h2>Loading...</h2>
 

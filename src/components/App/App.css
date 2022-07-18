@@ -1,5 +1,5 @@
 .app {
-	width: 26rem;
+	width: 100vw;
 	height: 100vh;
 	max-width: 30rem;
 	display: flex;
@@ -8,5 +8,5 @@
 	margin: auto;
 	background-color: #f2f2f2;
 	position: relative;
-	overflow: hidden;
+	overflow-y: scroll;
 }
