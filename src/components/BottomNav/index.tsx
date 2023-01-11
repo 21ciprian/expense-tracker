@@ -4,19 +4,29 @@ import {
 	AiOutlinePlusCircle
 } from 'react-icons/ai'
 import {BsGraphDown, BsGraphUp} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
 import styles from './BottomNav.module.css'
-type Props = {}
 
-const index = (props: Props) => {
+const BottomNav = () => {
 	return (
 		<div className={styles.bottomNav}>
-			<AiOutlineHome />
-			<AiOutlineHistory />
-			<AiOutlinePlusCircle />
-			<BsGraphDown />
-			<BsGraphUp />
+			<Link to='/'>
+				<AiOutlineHome />
+			</Link>
+			<Link to='/history'>
+				<AiOutlineHistory />
+			</Link>
+			<Link to='/add-transaction'>
+				<AiOutlinePlusCircle />
+			</Link>
+			<Link to='/expense-history'>
+				<BsGraphDown />
+			</Link>
+			<Link to='/income-history'>
+				<BsGraphUp />
+			</Link>
 		</div>
 	)
 }
 
-export default index
+export default BottomNav

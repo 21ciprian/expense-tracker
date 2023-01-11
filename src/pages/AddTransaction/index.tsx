@@ -1,7 +1,7 @@
 import {useAuth0} from '@auth0/auth0-react'
 import React, {useContext, useState} from 'react'
+import Button from '../../components/Button'
 import {GlobalContext} from '../../context/GlobalState'
-import Button from '../Button'
 import styles from './AddTransaction.module.css'
 
 function AddTransaction(): JSX.Element {

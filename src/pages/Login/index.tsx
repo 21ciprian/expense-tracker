@@ -1,11 +1,11 @@
 import {useAuth0} from '@auth0/auth0-react'
 import logo from '../../assets/logo.svg'
-import Button from '../Button'
+import Button from '../../components/Button'
 import styles from './Login.module.css'
 function Login(): JSX.Element {
 	const {loginWithRedirect} = useAuth0()
 	const buttonStyle = {
-		width: '80%',
+		width: '80%'
 	}
 	return (
 		<section className={styles.login}>

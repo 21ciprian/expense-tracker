@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useContext, useEffect} from 'react'
+import Transaction from '../../components/Transaction'
 import {GlobalContext} from '../../context/GlobalState'
-import Transaction from '../Transaction'
-import styles from './TransactionList.module.css'
+import styles from './History.module.css'
 
-function TransactionList(): JSX.Element {
+function History(): JSX.Element {
 	const context = useContext(GlobalContext)
 
 	useEffect(() => {
@@ -15,7 +15,7 @@ function TransactionList(): JSX.Element {
 	if (!context) return <h2>Loading...</h2>
 
 	return (
-		<section className={styles.transactions}>
+		<section className={styles.transactions} style={{marginTop: '400px'}}>
 			<h3>History</h3>
 			<ul className={styles.list}>
 				{context?.transactions?.map(transaction => (
@@ -26,4 +26,4 @@ function TransactionList(): JSX.Element {
 	)
 }
 
-export default TransactionList
+export default History

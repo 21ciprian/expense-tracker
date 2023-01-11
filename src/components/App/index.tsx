@@ -1,13 +1,15 @@
 import {useAuth0} from '@auth0/auth0-react'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {GlobalProvider} from '../../context/GlobalState'
-import AddTransaction from '../AddTransaction'
-// import Balance from '../Balance'
+import AddTransaction from '../../pages/AddTransaction'
+import ExpenseHistory from '../../pages/ExpenseHistory'
+import History from '../../pages/History'
+import Home from '../../pages/Home'
+import IncomeHistory from '../../pages/IncomeHistory'
+import Login from '../../pages/Login'
+import NotFound from '../../pages/NotFound'
 import BottomNav from '../BottomNav'
-import DoughnutChart from '../DoughnutChart'
 import Header from '../Header'
-import IncomeExpenses from '../IncomeExpenses'
-import Login from '../Login'
-import TransactionList from '../TransactionList'
 import './App.css'
 
 function App(): JSX.Element {
@@ -18,20 +20,25 @@ function App(): JSX.Element {
 	return (
 		<GlobalProvider>
 			<article className='app'>
-				{isAuthenticated ? (
-					<>
-						<Header title='Expense Tracker' />
-						{/* <Balance /> */}
-						<IncomeExpenses />
-						<DoughnutChart />
+				<Router>
+					{isAuthenticated ? (
+						<>
+							<Header title='Expense Tracker' />
 
-						<TransactionList />
-						<AddTransaction />
-						<BottomNav />
-					</>
-				) : (
-					<Login />
-				)}
+							<Routes>
+								<Route path='/' element={<Home />} />
+								<Route path='/add-transaction' element={<AddTransaction />} />
+								<Route path='/history' element={<History />} />
+								<Route path='/income-history' element={<IncomeHistory />} />
+								<Route path='/expense-history' element={<ExpenseHistory />} />
+								<Route path='*' element={<NotFound />} />
+							</Routes>
+							<BottomNav />
+						</>
+					) : (
+						<Login />
+					)}
+				</Router>
 			</article>
 		</GlobalProvider>
 	)

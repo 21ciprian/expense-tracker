@@ -1,5 +1,5 @@
 import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js'
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import {Doughnut} from 'react-chartjs-2'
 import {GlobalContext} from '../../context/GlobalState'
 import styles from './DoughnutChart.module.css'
@@ -12,44 +12,42 @@ function DoughnutChart(): JSX.Element {
 	const options = {
 		plugins: {
 			legend: {
-				display: false,
-			},
-		},
+				display: false
+			}
+		}
 	}
 	const dataset = {
 		labels: ['Income', 'Expense'],
 		plugins: {
 			datalabels: {
-				display: false,
-			},
+				display: false
+			}
 		},
 		datasets: [
-			!amounts.length
-				? {
-						data: [10],
-						backgroundColor: ['#d7d7d733'],
-						borderColor: ['#797979'],
-				  }
-				: {
-						data: [
-							amounts
-								.filter(c => c > 0)
-								.map(i => i)
-								.reduce((a, v) => a + v, 0),
-							amounts
-								.filter(c => c < 0)
-								.map(i => i)
-								.reduce((a, v) => a + v, 0),
-						],
-						backgroundColor: ['#4bc0c033', '#ff638433'],
-						borderColor: ['#4bc0c0', '#ff6384'],
-				  },
-		],
+			{
+				data: [
+					amounts
+						.filter(c => c > 0)
+						.map(i => i)
+						.reduce((a, v) => a + v, 0),
+					amounts
+						.filter(c => c < 0)
+						.map(i => i)
+						.reduce((a, v) => a + v, 0)
+				],
+				backgroundColor: ['#4bc0c033', '#ff638433'],
+				borderColor: ['#4bc0c0', '#ff6384']
+			}
+		]
 	}
 	return (
 		<div className={styles.chart}>
 			{' '}
-			<Doughnut data={dataset} options={options} />
+			{!amounts.length ? (
+				<p>no data</p>
+			) : (
+				<Doughnut data={dataset} options={options} />
+			)}
 		</div>
 	)
 }

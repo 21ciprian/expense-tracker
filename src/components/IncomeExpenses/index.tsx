@@ -1,8 +1,9 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
 import {numberWithCommas} from '../../utils/format'
 import styles from './IncomeExpenses.module.css'
 
+//TODO Split in separate components
 function IncomeExpenses(): JSX.Element {
 	const context = useContext(GlobalContext)
 	const amounts = context?.transactions.map(transaction => transaction.amount)
