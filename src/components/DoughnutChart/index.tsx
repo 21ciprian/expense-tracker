@@ -2,12 +2,14 @@ import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js'
 import {useContext} from 'react'
 import {Doughnut} from 'react-chartjs-2'
 import {GlobalContext} from '../../context/GlobalState'
+import {data} from '../../data'
 import styles from './DoughnutChart.module.css'
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 function DoughnutChart(): JSX.Element {
 	const context = useContext(GlobalContext)
-	const amounts = context?.transactions?.map(transaction => transaction.amount)
+	// const amounts = context?.transactions?.map(transaction => transaction.amount)
+	const amounts = data.map(transaction => transaction.amount)
 
 	const options = {
 		plugins: {
