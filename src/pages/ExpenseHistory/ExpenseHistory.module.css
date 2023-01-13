@@ -1,0 +1,19 @@
+.transactions {
+	width: 100%;
+	height: 100%;
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox */
+}
+.transactions::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
+
+.list {
+	list-style-type: none;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.list li:last-of-type {
+	margin-bottom: 100px;
+}

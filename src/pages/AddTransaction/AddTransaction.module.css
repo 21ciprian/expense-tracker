@@ -1,18 +1,26 @@
 .addTransaction {
 	width: 100%;
-	width: 90%;
-	background-color: inherit;
-	margin-bottom: 6rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 90px;
+	gap: 0.5rem;
 }
 .addTransaction h3 {
 	text-align: center;
 }
+
 label {
 	display: inline-block;
 	margin: 10px 0;
+	max-width: 40rem;
 }
 input[type='text'],
-input[type='number'] {
+input[type='number'],
+input[type='date'],
+textarea {
 	border: 1px solid #dedede;
 	border-radius: 0.5rem;
 	display: block;
@@ -26,6 +34,7 @@ input[type='number'] {
 ::-webkit-datetime-edit-fields-wrapper {
 	color: gray;
 }
+
 
 textarea {
 	min-height: 5rem;
