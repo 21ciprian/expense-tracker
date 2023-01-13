@@ -1,5 +1,6 @@
 import {AiOutlineHistory, AiOutlineHome} from 'react-icons/ai'
-import {BsGraphDown, BsGraphUp, BsPlusCircleFill} from 'react-icons/bs'
+import {BsPlusCircleFill} from 'react-icons/bs'
+import {GiPayMoney, GiReceiveMoney} from 'react-icons/gi'
 import {NavLink} from 'react-router-dom'
 import styles from './BottomNav.module.css'
 
@@ -27,13 +28,13 @@ const BottomNav = () => {
 			<NavLink
 				to='/expense-history'
 				style={({isActive}) => (isActive ? activeStyle : undefined)}>
-				<BsGraphDown size={40} />
+				<GiPayMoney size={40} />
 				<p>Expenses</p>
 			</NavLink>
 			<NavLink
 				to='/income-history'
 				style={({isActive}) => (isActive ? activeStyle : undefined)}>
-				<BsGraphUp size={40} />
+				<GiReceiveMoney size={40} />
 				<p>Income</p>
 			</NavLink>
 		</div>
