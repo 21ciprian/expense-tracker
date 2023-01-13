@@ -18,7 +18,21 @@ input[type='number'] {
 	display: block;
 	font-size: 16px;
 	padding: 10px;
-	width: 100%;
+	width: 20rem;
+	max-width: 20rem;
+	margin-bottom: 1rem;
+	font-family: sans-serif;
+}
+::-webkit-datetime-edit-fields-wrapper {
+	color: gray;
+}
+
+textarea {
+	min-height: 5rem;
+	max-height: 10rem;
+}
+textarea::placeholder {
+	font-family: sans-serif;
 }
 .addTransaction button {
 	cursor: pointer;
