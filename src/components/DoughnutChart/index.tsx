@@ -19,7 +19,7 @@ function DoughnutChart(): JSX.Element {
 		}
 	}
 	const dataset = {
-		labels: ['Income', 'Expense'],
+		labels: ['Expense', 'Income'],
 		plugins: {
 			datalabels: {
 				display: false
@@ -29,16 +29,16 @@ function DoughnutChart(): JSX.Element {
 			{
 				data: [
 					amounts
-						.filter(c => c > 0)
+						.filter(c => c < 0)
 						.map(i => i)
 						.reduce((a, v) => a + v, 0),
 					amounts
-						.filter(c => c < 0)
+						.filter(c => c > 0)
 						.map(i => i)
 						.reduce((a, v) => a + v, 0)
 				],
-				backgroundColor: ['#4bc0c033', '#ff638433'],
-				borderColor: ['#4bc0c0', '#ff6384']
+				backgroundColor: ['#ff638433', '#4bc0c033'],
+				borderColor: ['#ff6384', '#4bc0c0']
 			}
 		]
 	}

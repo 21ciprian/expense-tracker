@@ -8,6 +8,7 @@ import Home from '../../pages/Home'
 import IncomeHistory from '../../pages/IncomeHistory'
 import Login from '../../pages/Login'
 import NotFound from '../../pages/NotFound'
+import Transaction from '../../pages/Transaction'
 import BottomNav from '../BottomNav'
 import Header from '../Header'
 import './App.css'
@@ -27,10 +28,15 @@ function App(): JSX.Element {
 
 							<Routes>
 								<Route path='/' element={<Home />} />
-								<Route path='/add-transaction' element={<AddTransaction />} />
-								<Route path='/history' element={<History />} />
-								<Route path='/income-history' element={<IncomeHistory />} />
-								<Route path='/expense-history' element={<ExpenseHistory />} />
+								<Route path='add-transaction' element={<AddTransaction />} />
+								<Route path='history' element={<History />}></Route>
+								<Route
+									index
+									path='history/:transactionId'
+									element={<Transaction />}
+								/>
+								<Route path='income-history' element={<IncomeHistory />} />
+								<Route path='expense-history' element={<ExpenseHistory />} />
 								<Route path='*' element={<NotFound />} />
 							</Routes>
 							<BottomNav />
