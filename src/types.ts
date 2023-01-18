@@ -2,12 +2,16 @@ export enum Actions {
 	DELETE_TRANSACTION = 'DELETE_TRANSACTION',
 	ADD_TRANSACTION = 'ADD_TRANSACTION',
 	GET_TRANSACTIONS = 'GET_TRANSACTIONS',
-	TRANSACTIONS_ERROR = 'TRANSACTIONS_ERROR',
+	TRANSACTIONS_ERROR = 'TRANSACTIONS_ERROR'
 }
 export type TransactionProps = {
 	_id: number
-	text: string
+	transactionName: string
+	description?: string
+	venue?: string
+	date?: string
 	amount: number
+	transactionType?: string
 	email: string
 }
 export interface State {

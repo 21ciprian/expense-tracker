@@ -7,7 +7,7 @@ import styles from './AddTransaction.module.css'
 function AddTransaction(): JSX.Element {
 	const {user} = useAuth0()
 	const context = useContext(GlobalContext)
-	const [text, setText] = useState<string>('')
+	const [transactionName, setTransactionName] = useState<string>('')
 	const [date, setDate] = useState<string>('')
 	const [venue, setVenue] = useState<string>('')
 	const [description, setDescription] = useState<string>('')
@@ -20,14 +20,21 @@ function AddTransaction(): JSX.Element {
 		e.preventDefault()
 		const newTransaction = {
 			_id: context.transactions.length + 1,
-			text,
+			transactionName,
+			description,
+			venue,
+			date,
 			amount: +amount,
+			transactionType,
 			email: user!.email!
 		}
-
+		console.log({newTransaction})
 		context.addTransaction?.(newTransaction)
-		setText('')
+		setTransactionName('')
 		setAmount('')
+		setDate('')
+		setVenue('')
+		setDescription('')
 	}
 	function handleTransactionChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setTransactionType(e.target.value)
@@ -41,16 +48,16 @@ function AddTransaction(): JSX.Element {
 						required
 						type='text'
 						placeholder='Transaction...'
-						value={text}
+						value={transactionName}
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-							setText(e.target.value)
+							setTransactionName(e.target.value)
 						}
 					/>
 					<textarea
 						required
 						placeholder='Description...'
 						value={description}
-						maxLength={6}
+						maxLength={256}
 						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
 							setDescription(e.target.value)
 						}

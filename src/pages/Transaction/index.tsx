@@ -13,7 +13,7 @@ function Transaction() {
 			) : (
 				<>
 					<p onClick={() => navigate('/history')}>go back</p>
-					<h2>Transaction Name: {foundTransaction?.text}</h2>
+					<h2>Transaction Name: {foundTransaction?.transactionName}</h2>
 					<p>Id: {foundTransaction?._id}</p>
 					<h3>Amount: {foundTransaction?.amount}</h3>
 				</>

@@ -9,7 +9,19 @@ function IncomeHistory() {
 		<section style={{marginTop: '150px'}} className={styles.transactions}>
 			<ul className={styles.list}>
 				{expenses.map(expense => (
-					<Transaction key={expense._id} transaction={expense} />
+					<Transaction
+						key={expense._id}
+						transaction={{
+							_id: 0,
+							transactionName: '',
+							description: undefined,
+							venue: undefined,
+							date: undefined,
+							amount: 0,
+							transactionType: undefined,
+							email: ''
+						}}
+					/>
 				))}
 			</ul>
 		</section>

@@ -5,6 +5,7 @@ import {GlobalContext} from '../../context/GlobalState'
 import {TransactionProp} from '../../types'
 import {numberWithCommas} from '../../utils/format'
 import styles from './Transaction.module.css'
+
 function Transaction({transaction}: TransactionProp): JSX.Element {
 	const sign = transaction.amount < 0 ? '-' : '+'
 	const context = useContext(GlobalContext)
@@ -14,8 +15,8 @@ function Transaction({transaction}: TransactionProp): JSX.Element {
 			onClick={() => navigate(`/history/${transaction._id}`)}
 			className={transaction.amount < 0 ? `${styles.minus}` : `${styles.plus}`}>
 			<h4>
-				{transaction.text.charAt(0).toUpperCase() +
-					transaction.text.slice(1).toLowerCase()}{' '}
+				{transaction.transactionName.charAt(0).toUpperCase() +
+					transaction.transactionName.slice(1).toLowerCase()}{' '}
 			</h4>
 
 			<span>

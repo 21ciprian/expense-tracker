@@ -8,7 +8,7 @@ const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000'
 export const initialState = {
 	transactions: [],
 	error: null,
-	loading: true,
+	loading: true
 }
 
 export const GlobalContext = createContext<InitialState>(initialState)
@@ -25,28 +25,28 @@ export const GlobalProvider = ({children}: Children) => {
 			console.log('data: ', data)
 			dispatch({
 				type: Actions.GET_TRANSACTIONS,
-				payload: data.payload,
+				payload: data.payload
 			})
 		} catch (error: any) {
 			dispatch({
 				type: Actions.TRANSACTIONS_ERROR,
-				payload: error.message,
+				payload: error.message
 			})
 		}
 	}
 	async function deleteTransaction(id: number): Promise<void> {
 		try {
 			await fetch(`${baseURL!}/api/v1/user/${user?.email}/transactions/${id}`, {
-				method: 'DELETE',
+				method: 'DELETE'
 			})
 			dispatch({
 				type: Actions.DELETE_TRANSACTION,
-				payload: id,
+				payload: id
 			})
 		} catch (error: any) {
 			dispatch({
 				type: Actions.TRANSACTIONS_ERROR,
-				payload: error.message,
+				payload: error.message
 			})
 		}
 	}
@@ -57,25 +57,25 @@ export const GlobalProvider = ({children}: Children) => {
 				{
 					method: 'POST',
 					headers: {
-						'Content-Type': 'application/json',
+						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						text: transaction.text,
+						transactionName: transaction.transactionName,
 						amount: transaction.amount,
-						email: transaction.email,
-					}),
+						email: transaction.email
+					})
 				}
 			)
 			const data = await response.json()
 			console.log('POST data.payload: ', data.payload)
 			dispatch({
 				type: Actions.ADD_TRANSACTION,
-				payload: data.payload,
+				payload: data.payload
 			})
 		} catch (error: any) {
 			dispatch({
 				type: Actions.TRANSACTIONS_ERROR,
-				payload: error.message,
+				payload: error.message
 			})
 		}
 	}
@@ -87,7 +87,7 @@ export const GlobalProvider = ({children}: Children) => {
 				loading: state.loading,
 				error: state.error,
 				deleteTransaction,
-				addTransaction,
+				addTransaction
 			}}>
 			{children}
 		</GlobalContext.Provider>
