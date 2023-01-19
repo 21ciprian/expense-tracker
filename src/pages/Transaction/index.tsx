@@ -1,11 +1,17 @@
+import {useContext} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
-import {data} from '../../data'
+import {GlobalContext} from '../../context/GlobalState'
 import NotFound from '../NotFound'
+
 function Transaction() {
+	const context = useContext(GlobalContext)
+
 	const params = useParams()
 	const navigate = useNavigate()
 	const {transactionId} = params
-	const foundTransaction = data.find(d => d._id.toString() === transactionId)
+	const foundTransaction = context?.transactions?.find(
+		d => d._id.toString() === transactionId
+	)
 	return (
 		<div style={{marginTop: '300px'}}>
 			{!foundTransaction ? (

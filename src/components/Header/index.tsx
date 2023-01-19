@@ -10,6 +10,7 @@ type HeaderProps = {
 
 function Header({title}: HeaderProps): JSX.Element {
 	const {user, isAuthenticated, isLoading} = useAuth0()
+	console.log({user})
 	if (isLoading) {
 		return <div>Loading ...</div>
 	}

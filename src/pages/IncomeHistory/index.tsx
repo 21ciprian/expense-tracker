@@ -1,27 +1,19 @@
+import {useContext} from 'react'
 import Transaction from '../../components/Transaction'
-import {data} from '../../data'
+import {GlobalContext} from '../../context/GlobalState'
 import styles from './IncomeHistory.module.css'
 
 function IncomeHistory() {
-	const amounts = data
-	const expenses = amounts.filter(amount => amount.amount > 0)
+	const context = useContext(GlobalContext)
+	const incomeTransactions = context?.transactions?.filter(
+		amount => amount.amount > 0
+	)
+	console.log({incomeTransactions})
 	return (
 		<section style={{marginTop: '150px'}} className={styles.transactions}>
 			<ul className={styles.list}>
-				{expenses.map(expense => (
-					<Transaction
-						key={expense._id}
-						transaction={{
-							_id: 0,
-							transactionName: '',
-							description: undefined,
-							venue: undefined,
-							date: undefined,
-							amount: 0,
-							transactionType: undefined,
-							email: ''
-						}}
-					/>
+				{incomeTransactions.map(income => (
+					<Transaction key={income._id} transaction={income} />
 				))}
 			</ul>
 		</section>

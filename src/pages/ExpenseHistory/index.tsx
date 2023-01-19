@@ -1,10 +1,10 @@
+import {useContext} from 'react'
 import Transaction from '../../components/Transaction'
-import {data} from '../../data'
+import {GlobalContext} from '../../context/GlobalState'
 import styles from './ExpenseHistory.module.css'
-
 function ExpenseHistory() {
-	const amounts = data
-	const expenses = amounts.filter(amount => amount.amount < 0)
+	const context = useContext(GlobalContext)
+	const expenses = context?.transactions?.filter(amount => amount.amount < 0)
 	return (
 		<section style={{marginTop: '150px'}} className={styles.transactions}>
 			<ul className={styles.list}>

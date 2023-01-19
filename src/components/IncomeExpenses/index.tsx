@@ -1,14 +1,14 @@
 import {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
-import {data} from '../../data'
-import {numberWithCommas} from '../../utils/format'
+// import {data} from '../../data'
+import {numberWithCommas} from '../../utils/utils'
 import styles from './IncomeExpenses.module.css'
 
 //TODO Split in separate components
 function IncomeExpenses(): JSX.Element {
 	const context = useContext(GlobalContext)
-	// const amounts = context?.transactions.map(transaction => transaction.amount)
-	const amounts = data.map(transaction => transaction.amount)
+	const amounts = context?.transactions.map(transaction => transaction.amount)
+	// const amounts = data.map(transaction => transaction.amount)
 	console.log({context})
 	const income = amounts
 		?.filter(amount => amount > 0)

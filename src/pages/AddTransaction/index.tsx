@@ -12,7 +12,6 @@ function AddTransaction(): JSX.Element {
 	const [venue, setVenue] = useState<string>('')
 	const [description, setDescription] = useState<string>('')
 	const [amount, setAmount] = useState<string>('')
-	const [transactionType, setTransactionType] = useState<string>('Income')
 	const buttonStyle = {
 		width: '100%'
 	}
@@ -25,10 +24,8 @@ function AddTransaction(): JSX.Element {
 			venue,
 			date,
 			amount: +amount,
-			transactionType,
 			email: user!.email!
 		}
-		console.log({newTransaction})
 		context.addTransaction?.(newTransaction)
 		setTransactionName('')
 		setAmount('')
@@ -36,9 +33,7 @@ function AddTransaction(): JSX.Element {
 		setVenue('')
 		setDescription('')
 	}
-	function handleTransactionChange(e: React.ChangeEvent<HTMLInputElement>) {
-		setTransactionType(e.target.value)
-	}
+
 	return (
 		<section className={styles.addTransaction}>
 			<h3>Add new transaction</h3>
@@ -90,30 +85,6 @@ function AddTransaction(): JSX.Element {
 							setAmount(e.target.value)
 						}
 					/>
-				</div>
-				<div className={styles.transactionType}>
-					<div>
-						<label htmlFor='income'>Income</label>
-						<input
-							type='radio'
-							name='income'
-							id='income'
-							value='Income'
-							checked={transactionType === 'Income'}
-							onChange={e => handleTransactionChange(e)}
-						/>
-					</div>
-					<div>
-						<label htmlFor='expense'>Expense</label>
-						<input
-							type='radio'
-							name='expense'
-							id='expense'
-							value='Expense'
-							checked={transactionType === 'Expense'}
-							onChange={e => handleTransactionChange(e)}
-						/>
-					</div>
 				</div>
 				<Button style={buttonStyle} text='Add transaction' />
 			</form>

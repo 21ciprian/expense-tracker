@@ -1,7 +1,6 @@
 import {useContext} from 'react'
 import {GlobalContext} from '../../context/GlobalState'
-import {numberWithCommas} from '../../utils/format'
-// import DoughnutChart from '../DoughnutChart'
+import {numberWithCommas} from '../../utils/utils'
 import styles from './Balance.module.css'
 
 function Balance(): JSX.Element {

@@ -29,7 +29,7 @@ const BottomNav = () => {
 				to='/expense-history'
 				style={({isActive}) => (isActive ? activeStyle : undefined)}>
 				<GiPayMoney size={40} />
-				<p>Expenses</p>
+				<p>Expense</p>
 			</NavLink>
 			<NavLink
 				to='/income-history'

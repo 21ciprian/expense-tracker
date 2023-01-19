@@ -1,4 +1,28 @@
 .chart {
 	width: 90%;
-	margin: 10vh auto 2rem;
+	margin: 50% auto 2rem;
+}
+@media screen and (max-width: 1080px), screen and (max-height: 1920px) {
+	.chart {
+		max-width: 90%;
+		margin: 10vh auto 2rem;
+	}
+}
+@media screen and (max-width: 541px), screen and (max-height: 720px) {
+	.chart {
+		max-width: 75%;
+		margin: 6vh auto 2rem;
+	}
+}
+@media screen and (max-width: 415px), screen and (max-height: 720px) {
+	.chart {
+		max-width: 90%;
+		margin: 10vh auto 2rem;
+	}
+}
+@media screen and (max-width: 376px), screen and (max-height: 667px) {
+	.chart {
+		max-width: 80%;
+		margin: 7vh auto 2rem;
+	}
 }
