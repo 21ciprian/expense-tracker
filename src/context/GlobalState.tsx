@@ -5,7 +5,7 @@ import {getSub} from '../utils/utils'
 import AppReducer from './AppReducer'
 
 //initial state
-const baseURL = 'http://localhost:5000' //process.env.REACT_APP_API_URL ||
+const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5761'
 export const initialState = {
 	transactions: [],
 	error: null,
